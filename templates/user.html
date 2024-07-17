@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Home</title>
+    <style>
+        .form {
+            height: 120px;
+        }
+        .menu-user {
+            width: 400px;
+            height: 70px;
+            float: right;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Harmony Hues</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To Text">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+
+            <div class="menu-user">
+                <!-- Menu for a logged in user -->
+                <ul>
+                    <li><a href="{{ url_for('upload_content') }}">UPLOAD CONTENT</a></li>
+                    <li><a href="{{ url_for('remove_content') }}">REMOVE CONTENT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Welcome <br><span>{{ user_name }}</span><br>to HarmonyHues</h1>
+            <p class="par">Your posts are:</p>
+            {% for row in data %}
+            <p class="par">{{ row[3] }}</p>
+            {% endfor %}
+
+            <div class="form">
+                <h2>Logout here</h2>
+                <form action="{{ url_for('signout') }}" method="POST">
+                    <button class="btn-login">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

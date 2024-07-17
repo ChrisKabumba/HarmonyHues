@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .form {
+            width: 500px;
+            height: 380px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8)50%, rgba(0, 0, 0, 0.8)50%);
+            position: absolute;
+            top: -20px;
+            left: 570px;
+            border-radius: 20px;
+            padding: 25px;
+        }
+    </style>
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Harmony Hues</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To Text">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Sign up<br><span>Page</span><br>Harmony</h1>
+
+            <div class="form">
+                <h2>Sign up Here</h2>
+                {% if message == "": %}
+                    <form action="{{ url_for('sign_up') }}" method="POST">
+                        <input type="text" name="first-name" placeholder="Enter your first name here">
+                        <input type="text" name="middle-name" placeholder="Enter your middle name here">
+                        <input type="text" name="last-name" placeholder="Enter your last name here">
+                        <input type="email" name="email" placeholder="Enter email here">
+                        <input type="text" name="phone-number" placeholder="Enter your phone number here">
+                        <input type="text" name="current-address" placeholder="Enter your current address here">
+                        <input type="date" name="date-of-birth">
+
+                        <div class="password">
+                            <input type="password" name="password-first" placeholder="Enter password here">
+                            <input type="password" name="password-scnd" placeholder="Enter password here">
+                        </div>
+
+                        <button class="btn-login">Register</button>
+                    </form>
+                {% elif message=="Password do not match": %}
+                    <p class="para">{{ message }}</p>
+
+                    <form action="{{ url_for('sign_up') }}" method="POST">
+                        <input type="text" name="first-name" placeholder="Enter your first name here" value="{{ data.first_name }}">
+                        <input type="text" name="middle-name" placeholder="Enter your middle name here" value="{{ data.middle_name }}">
+                        <input type="text" name="last-name" placeholder="Enter your last name here"  value="{{ data.last_name }}">
+                        <input type="email" name="email" placeholder="Enter email here"  value="{{ data.email }}">
+                        <input type="text" name="phone-number" placeholder="Enter your phone number here"  value="{{ data.phone_number }}">
+                        <input type="text" name="current-address" placeholder="Enter your current address here"  value="{{ data.current_address }}">
+                        <input type="date" name="date-of-birth" placeholder="Enter your date of birth here"  value="{{ data.date_of_birth }}">
+
+                        <div class="password">
+                            <input type="password" name="password-first" placeholder="Enter password here">
+                            <input type="password" name="password-scnd" placeholder="Enter password here">
+                        </div>
+
+                        <button class="btn-login">Register</button>
+                    </form>
+                {% endif %}
+
+                <!-- <p class="link">{{ message }}</p>
+
+                <p class="link">
+                    Don't have an account<br>
+                    <a href="#">Sign up</a> here
+                </p>
+                <p class="liw">Log in with</p>
+
+                <div class="icons">
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

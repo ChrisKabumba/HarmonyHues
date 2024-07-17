@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .form {
+            width: 300px;
+            height: 380px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8)50%, rgba(0, 0, 0, 0.8)50%);
+            position: absolute;
+            top: -20px;
+            left: 570px;
+            border-radius: 20px;
+            padding: 25px;
+        }
+    </style>
+    <title>Upload Content</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Harmony Hues</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To Text">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Upload Content Page</h1>
+
+            <div class="form">
+                <h2>Upload Content here</h2>
+                <form action="{{ url_for('upload_content') }}" method="POST">
+                    <textarea name="content" placeholder="Post here" rows="20" cols="40"></textarea>
+                    <button class="btn-login">Upload Content</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
