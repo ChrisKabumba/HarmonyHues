@@ -93,8 +93,8 @@ class User:
             return False
         
     def send_otp(self, email:str) -> str:
-        #this method is tied to the sign up method
         """Generate OTP code for signing up"""
+        #this method is tied to the sign up method
         #generate OTP here     
         otp_code = f"{random.randint(0, 9)}{random.randint(0, 9)}{random.randint(0, 9)}{random.randint(0, 9)}"
 
